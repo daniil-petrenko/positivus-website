@@ -1,0 +1,21 @@
+@theme {
+   --font-main: 'Space Grotesk', sans-serif;
+
+   --text-base: 16px;
+
+   --mn-width: 20rem;
+   --mx-width: 77.5rem;
+
+   --color-main: #000;
+   --color-green: #b9ff66;
+   --color-gray: #f3f3f3;
+   --color-dark: #191a23;
+
+   --breakpoint-*: initial;
+   --breakpoint-xl: 90.5625rem;
+   --breakpoint-lg: 73.125rem;
+   --breakpoint-md: 61.99875rem;
+   --breakpoint-sm: 47.99875rem;
+   --breakpoint-sm2: 39.99875rem;
+   --breakpoint-xs: 29.99875rem;
+}

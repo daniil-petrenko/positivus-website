@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import "./theme.css";
+@import "./fonts.css";
+
+@layer base {
+   html {
+      @apply font-main text-base h-full;
+   }
+   body {
+      @apply h-full text-main;
+   }
+   .wrapper {
+      @apply flex flex-col min-h-screen overflow-hidden;
+   }
+   .wrapper > main {
+      @apply flex-auto;
+   }
+   .cnt {
+      @apply max-w-[1270px] px-[15px] mx-auto;
+   }
+   .text {
+      @apply text-[18px];
+   }
+
+   :before,
+   :after,
+   a {
+      @apply inline-block;
+   }
+}
