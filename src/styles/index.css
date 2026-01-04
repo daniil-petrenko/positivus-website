@@ -28,3 +28,9 @@
       @apply inline-block;
    }
 }
+
+@layer utilities {
+   .faq-icon {
+      @apply before:absolute before:h-6.5 before:w-1.5 max-sm2:before:h-4.5 max-sm2:before:w-1 before:bg-black before:content-[''] after:absolute after:w-1.5 after:h-6.5 max-sm2:after:h-4.5 max-sm2:after:w-1 after:rotate-90 after:bg-black before:transition-all before:duration-500 after:content-[''];
+   }
+}

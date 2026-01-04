@@ -5,7 +5,7 @@ const Case = ({ className }) => {
       <section id="cases" className={className}>
          <div className="cnt">
             <Heading
-               title="Case Studies"
+               title="Case Studies"m
                text="Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies"
             />
             <div className='flex bg-black rounded-[45px] pt-17.5 px-15 pb-22.5 max-lg:px-12 max-md:flex-col max-md:gap-8 max-md:pt-14 max-md:pb-18 max-sm:pt-11 max-sm:pb-14 max-sm2:px-7 max-xs:px-5 max-xs:pt-8 max-xs:pb-8 max-xs:gap-6'>
