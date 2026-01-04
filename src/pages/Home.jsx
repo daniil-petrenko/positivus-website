@@ -5,6 +5,7 @@ import Services from '@/components/Services';
 import Proposal from '@/components/Proposal';
 import Case from '@/components/Case';
 import Process from '@/components/Process';
+import Team from '@/components/Team';
 
 const Home = () => {
    return (
@@ -15,6 +16,7 @@ const Home = () => {
          <Proposal className="pt-15 pb-20 max-xs:py-7.5" />
          <Case className="pt-20 pb-17.5 max-xs:py-7.5"/>
          <Process className="pt-17.5 pb-17.5 max-xs:py-7.5" />
+         <Team className="pt-17.5 pb-12.5 max-xs:py-7.5" />
       </MainLayout>
    );
 };

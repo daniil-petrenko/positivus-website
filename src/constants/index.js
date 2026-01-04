@@ -1,4 +1,4 @@
-import { amazon, dribbble, hubspot, notion, netflix, zoom, services1, services2, services3, services4, services5, services6 } from "@assets/images"
+import { amazon, dribbble, hubspot, notion, netflix, zoom, services1, services2, services3, services4, services5, services6, johnSmith, janeDoe, michaelBrown, emilyJohnson,brianWilliams, sarahKim } from "@assets/images"
 
 export const navigation = [
   {
@@ -138,3 +138,54 @@ export const faq = [
       "Digital marketing is an ongoing process. We consistently review results, test new ideas, and refine strategies to adapt to market changes and evolving business needs, ensuring continuous improvement and sustainable growth.",
   },
 ];
+
+export const team = [
+   {
+      id: '0',
+      name: 'John Smith',
+      position: 'CEO and Founder',
+      linkedinUrl: '',
+      imageUrl: johnSmith,
+      desc: ['10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy'],
+   },
+   {
+      id: '1',
+      name: 'Jane Doe',
+      position: 'Director of Operations',
+      linkedinUrl: '',
+      imageUrl: janeDoe,
+      desc: ['7+ years of experience in project management and team leadership. Strong organizational and communication skills'],
+   },
+   {
+      id: '2',
+      name: 'Michael Brown',
+      position: 'Senior SEO Specialist',
+      linkedinUrl: '',
+      imageUrl: michaelBrown, 
+      desc: ['5+ years of experience in SEO and content creation. Proficient in keyword research and on-page optimization'],
+   },
+   {
+      id: '3',
+      name: 'Emily Johnson',
+      position: 'PPC Manager',
+      linkedinUrl: '',
+      imageUrl: emilyJohnson, 
+      desc: ['3+ years of experience in paid search advertising. Skilled in campaign management and performance analysis'],
+   },
+   {
+      id: '4',
+      name: 'Brian Williams',
+      position: 'Social Media Specialist',
+      linkedinUrl: '',
+      imageUrl: brianWilliams, 
+      desc: ['4+ years of experience in social media marketing. Proficient in creating and scheduling content, analyzing metrics, and building engagement'],
+   },
+   {
+      id: '5',
+      name: 'Sarah Kim',
+      position: 'Content Creator',
+      linkedinUrl: '',
+      imageUrl: sarahKim, 
+      desc: ['2+ years of experience in writing and editing', 'Skilled in creating compelling, SEO-optimized content for various industries'],
+   },
+]
