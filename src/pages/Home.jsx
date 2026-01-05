@@ -7,6 +7,7 @@ import Case from '@/components/Case';
 import Process from '@/components/Process';
 import Team from '@/components/Team';
 import Testimonials from '@/components/Testimonials';
+import Contact from '@/components/Contact';
 
 const Home = () => {
    return (
@@ -19,6 +20,7 @@ const Home = () => {
          <Process className="pt-17.5 pb-17.5 max-xs:py-7.5" />
          <Team className="pt-17.5 pb-12.5 max-xs:py-7.5" />
          <Testimonials className="pt-12.5 pb-17.5 max-xs:py-7.5" />
+         <Contact className="pt-17.5 pb-17.5 max-xs:py-7.5" />
       </MainLayout>
    );
 };
