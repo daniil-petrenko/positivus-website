@@ -2,6 +2,22 @@
 @import "./theme.css";
 @import "./fonts.css";
 
+
+
+section .swiper-pagination .swiper-pagination-bullet {
+  width: auto;
+  height: auto;
+  background: none;
+  opacity: 1;
+  color: #fff;
+}
+
+section .swiper-pagination .swiper-pagination-bullet-active {
+  color: #b9ff66;
+}
+
+
+
 @layer base {
    html {
       @apply font-main text-base h-full;

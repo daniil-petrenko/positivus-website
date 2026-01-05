@@ -7,6 +7,7 @@ const ServicesItem = ({ title, imageURL, color, titleColor }) => {
             <h3 className="flex flex-col flex-[1_1_auto] font-medium text-[30px] max-xl:mb-5">
                {title.map((row) => (
                   <span
+                     key={row}
                      className={`whitespace-nowrap w-fit px-1.75 rounded-[7px] bg-${titleColor} leading-11`}
                   >
                      {row}
