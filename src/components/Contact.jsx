@@ -2,9 +2,49 @@ import Heading from './Heading';
 import Button from './Button';
 import contact from '@assets/images/contact/contact.png';
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 const Contact = ({ className }) => {
+   useGSAP(() => {
+      const headingTimeline = gsap.timeline({
+         scrollTrigger: {
+            trigger: "#contact",
+            start: "top bottom",
+         },
+      });
+
+      headingTimeline
+         .from("#contact .heading-title", {
+            yPercent: 100,
+            opacity: 0,
+            duration: 0.5,
+         })
+         .from("#contact .heading-text", {
+            yPercent: 100,
+            opacity: 0,
+            duration: 0.5,
+         }, '-=0.3');
+
+      const contactTimeline = gsap.timeline({
+         scrollTrigger: {
+            trigger: '#contact',
+            start: "40% bottom",
+         }
+      })
+
+      contactTimeline
+         .from(document.querySelectorAll('.form-item'), {
+            opacity: 0,
+            xPercent: -30,
+            duration: 1,
+            stagger: 0.07
+         })
+   }, []);
+
    return (
-      <section className={className}>
+      <section id='contact' className={className}>
          <div className="cnt">
             <Heading
                title="Contact Us"
@@ -14,7 +54,7 @@ const Contact = ({ className }) => {
             <div className="bg-gray rounded-[45px] pt-15 max-sm2:pt-10 pb-20 max-sm2:pb-10 pl-25 max-md:px-3.5 flex items-center gap-7.5 relative">
                <div className="flex-1 relative z-2">
                   <form action="#" className="sm:max-w-139">
-                     <div className="flex max-sm:flex-col max-sm:gap-4 gap-8.75 mb-10 max-sm:mb-8 max-xs:mb-6">
+                     <div className="form-item flex max-sm:flex-col max-sm:gap-4 gap-8.75 mb-10 max-sm:mb-8 max-xs:mb-6">
                         <label className="flex items-center gap-3 cursor-pointer group">
                            <input type="radio" name="contact" className="peer sr-only" />            
                            <div className="w-7 h-7 border border-black rounded-full flex items-center justify-center 
@@ -36,7 +76,7 @@ const Contact = ({ className }) => {
                         </label>
                      </div>
 
-                     <div className="mb-6.25 max-xs:mb-4">
+                     <div className="form-item mb-6.25 max-xs:mb-4">
                         <label className="leading-[175%] mb-1.25 block" htmlFor="name">
                            Name
                         </label>
@@ -48,7 +88,7 @@ const Contact = ({ className }) => {
                            placeholder="Name"
                         />
                      </div>
-                     <div className="mb-6.25 max-xs:mb-4">
+                     <div className="form-item mb-6.25 max-xs:mb-4">
                         <label className="leading-[175%] mb-1.25 block" htmlFor="email">
                            Email*
                         </label>
@@ -60,7 +100,7 @@ const Contact = ({ className }) => {
                            placeholder="Email"
                         />
                      </div>
-                     <div className="mb-10 max-sm:mb-7 max-xs:mb-4">
+                     <div className="form-item mb-10 max-sm:mb-7 max-xs:mb-4">
                         <label className="leading-[175%] mb-1.25 block" htmlFor="message">
                            Message*
                         </label>

@@ -1,83 +1,127 @@
+import { Element } from "react-scroll";
+
 import Heading from './Heading';
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 const Case = ({ className }) => {
+   useGSAP(() => {
+      const headingTimeline = gsap.timeline({
+         scrollTrigger: {
+            trigger: "#cases",
+            start: "top bottom",
+         },
+      });
+
+      headingTimeline
+         .from("#cases .heading-title", {
+            yPercent: 100,
+            opacity: 0,
+            duration: 0.5,
+         })
+         .from("#cases .heading-text", {
+            yPercent: 100,
+            opacity: 0,
+            duration: 0.5,
+         }, '-=0.3');
+
+      const casesTimeline = gsap.timeline({
+         scrollTrigger: {
+            trigger: '#cases',
+            start: "50% bottom",
+         }
+      })
+
+      casesTimeline
+         .from(document.querySelectorAll('.cases-item'), {
+            opacity: 0,
+            yPercent: 50,
+            duration: 0.7,
+            stagger: 0.07
+         })
+   }, []);
+
    return (
       <section id="cases" className={className}>
-         <div className="cnt">
-            <Heading
-               title="Case Studies"m
-               text="Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies"
-            />
-            <div className='flex bg-black rounded-[45px] pt-17.5 px-15 pb-22.5 max-lg:px-12 max-md:flex-col max-md:gap-8 max-md:pt-14 max-md:pb-18 max-sm:pt-11 max-sm:pb-14 max-sm2:px-7 max-xs:px-5 max-xs:pt-8 max-xs:pb-8 max-xs:gap-6'>
-               <div className='pr-16 max-lg:pr-12 max-md:border-b border-white max-md:pb-8 max-xs:pb-6'>
-                  <div>
-                     <p className="text-[18px] text-white md:max-w-71.5 mb-5">
-                        For a local restaurant, we implemented a targeted PPC campaign that resulted
-                        in a 50% increase in website traffic and a 25% increase in sales.
-                     </p>
+         <Element name="Use Cases">
+            <div className="cnt">
+               <Heading
+                  title="Case Studies"
+                  text="Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies"
+               />
+               <div className='flex bg-black rounded-[45px] pt-17.5 px-15 pb-22.5 max-lg:px-12 max-md:flex-col max-md:gap-8 max-md:pt-14 max-md:pb-18 max-sm:pt-11 max-sm:pb-14 max-sm2:px-7 max-xs:px-5 max-xs:pt-8 max-xs:pb-8 max-xs:gap-6'>
+                  <div className='cases-item pr-16 max-lg:pr-12 max-md:border-b border-white max-md:pb-8 max-xs:pb-6'>
+                     <div>
+                        <p className="text-[18px] text-white md:max-w-71.5 mb-5">
+                           For a local restaurant, we implemented a targeted PPC campaign that resulted
+                           in a 50% increase in website traffic and a 25% increase in sales.
+                        </p>
+                     </div>
+                     <a href="" className='flex items-center gap-3.75 group'>
+                        <span className='text-[20px] leading-[140%] text-green group-hover:text-[#4f8c06] transition-colors'>Learn more</span>
+                        <svg
+                           className='group-hover:fill-[#4f8c06] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 fill-green'
+                           width="21"
+                           height="20"
+                           viewBox="0 0 21 20"
+                           fill="none"
+                           xmlns="http://www.w3.org/2000/svg"
+                        >
+                           <path
+                              d="M0.75 13.6956C0.0325611 14.1098 -0.213252 15.0272 0.200962 15.7446C0.615175 16.4621 1.53256 16.7079 2.25 16.2937L0.75 13.6956ZM20.2694 5.38286C20.4838 4.58266 20.0089 3.76015 19.2087 3.54574L6.16874 0.051683C5.36854 -0.16273 4.54603 0.312144 4.33162 1.11234C4.11721 1.91254 4.59208 2.73505 5.39228 2.94946L16.9834 6.05529L13.8776 17.6464C13.6631 18.4466 14.138 19.2691 14.9382 19.4835C15.7384 19.6979 16.5609 19.2231 16.7753 18.4229L20.2694 5.38286ZM2.25 16.2937L19.5705 6.29367L18.0705 3.69559L0.75 13.6956L2.25 16.2937Z"                          
+                           />
+                        </svg>
+                     </a>
                   </div>
-                  <a href="" className='flex items-center gap-3.75 group'>
-                     <span className='text-[20px] leading-[140%] text-green group-hover:text-[#4f8c06] transition-colors'>Learn more</span>
-                     <svg
-                        className='group-hover:fill-[#4f8c06] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 fill-green'
-                        width="21"
-                        height="20"
-                        viewBox="0 0 21 20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                     >
-                        <path
-                           d="M0.75 13.6956C0.0325611 14.1098 -0.213252 15.0272 0.200962 15.7446C0.615175 16.4621 1.53256 16.7079 2.25 16.2937L0.75 13.6956ZM20.2694 5.38286C20.4838 4.58266 20.0089 3.76015 19.2087 3.54574L6.16874 0.051683C5.36854 -0.16273 4.54603 0.312144 4.33162 1.11234C4.11721 1.91254 4.59208 2.73505 5.39228 2.94946L16.9834 6.05529L13.8776 17.6464C13.6631 18.4466 14.138 19.2691 14.9382 19.4835C15.7384 19.6979 16.5609 19.2231 16.7753 18.4229L20.2694 5.38286ZM2.25 16.2937L19.5705 6.29367L18.0705 3.69559L0.75 13.6956L2.25 16.2937Z"                          
-                        />
-                     </svg>
-                  </a>
-               </div>
-               <div className='px-16 max-lg:px-12 md:border-x border-white max-md:border-b max-md:pb-8 max-md:px-0 max-xs:pb-6'>
-                  <div>
-                     <p className="text-[18px] text-white md:max-w-71.5 mb-5">
-                        For a B2B software company, we developed an SEO strategy that resulted in a first page ranking for key keywords and a 200% increase in organic traffic.
-                     </p>
+                  <div className='cases-item px-16 max-lg:px-12 md:border-x border-white max-md:border-b max-md:pb-8 max-md:px-0 max-xs:pb-6'>
+                     <div>
+                        <p className="text-[18px] text-white md:max-w-71.5 mb-5">
+                           For a B2B software company, we developed an SEO strategy that resulted in a first page ranking for key keywords and a 200% increase in organic traffic.
+                        </p>
+                     </div>
+                     <a href="" className='flex items-center gap-3.75 group'>
+                        <span className='text-[20px] leading-[140%] text-green group-hover:text-[#4f8c06] transition-colors'>Learn more</span>
+                        <svg
+                           className='group-hover:fill-[#4f8c06] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 fill-green'
+                           width="21"
+                           height="20"
+                           viewBox="0 0 21 20"
+                           fill="none"
+                           xmlns="http://www.w3.org/2000/svg"
+                        >
+                           <path
+                              d="M0.75 13.6956C0.0325611 14.1098 -0.213252 15.0272 0.200962 15.7446C0.615175 16.4621 1.53256 16.7079 2.25 16.2937L0.75 13.6956ZM20.2694 5.38286C20.4838 4.58266 20.0089 3.76015 19.2087 3.54574L6.16874 0.051683C5.36854 -0.16273 4.54603 0.312144 4.33162 1.11234C4.11721 1.91254 4.59208 2.73505 5.39228 2.94946L16.9834 6.05529L13.8776 17.6464C13.6631 18.4466 14.138 19.2691 14.9382 19.4835C15.7384 19.6979 16.5609 19.2231 16.7753 18.4229L20.2694 5.38286ZM2.25 16.2937L19.5705 6.29367L18.0705 3.69559L0.75 13.6956L2.25 16.2937Z"                          
+                           />
+                        </svg>
+                     </a>
                   </div>
-                  <a href="" className='flex items-center gap-3.75 group'>
-                     <span className='text-[20px] leading-[140%] text-green group-hover:text-[#4f8c06] transition-colors'>Learn more</span>
-                     <svg
-                        className='group-hover:fill-[#4f8c06] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 fill-green'
-                        width="21"
-                        height="20"
-                        viewBox="0 0 21 20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                     >
-                        <path
-                           d="M0.75 13.6956C0.0325611 14.1098 -0.213252 15.0272 0.200962 15.7446C0.615175 16.4621 1.53256 16.7079 2.25 16.2937L0.75 13.6956ZM20.2694 5.38286C20.4838 4.58266 20.0089 3.76015 19.2087 3.54574L6.16874 0.051683C5.36854 -0.16273 4.54603 0.312144 4.33162 1.11234C4.11721 1.91254 4.59208 2.73505 5.39228 2.94946L16.9834 6.05529L13.8776 17.6464C13.6631 18.4466 14.138 19.2691 14.9382 19.4835C15.7384 19.6979 16.5609 19.2231 16.7753 18.4229L20.2694 5.38286ZM2.25 16.2937L19.5705 6.29367L18.0705 3.69559L0.75 13.6956L2.25 16.2937Z"                          
-                        />
-                     </svg>
-                  </a>
-               </div>
-               <div className='pl-16 max-lg:pl-12 max-md:pl-0'>
-                  <div>
-                     <p className="text-[18px] text-white md:max-w-71.5 mb-5">
-                        For a national retail chain, we created a social media marketing campaign that increased followers by 25% and generated a 20% increase in online sales.
-                     </p>
+                  <div className='cases-item pl-16 max-lg:pl-12 max-md:pl-0'>
+                     <div>
+                        <p className="text-[18px] text-white md:max-w-71.5 mb-5">
+                           For a national retail chain, we created a social media marketing campaign that increased followers by 25% and generated a 20% increase in online sales.
+                        </p>
+                     </div>
+                     <a href="" className='flex items-center gap-3.75 group'>
+                        <span className='text-[20px] leading-[140%] text-green group-hover:text-[#4f8c06] transition-colors'>Learn more</span>
+                        <svg
+                           className='group-hover:fill-[#4f8c06] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 fill-green'
+                           width="21"
+                           height="20"
+                           viewBox="0 0 21 20"
+                           fill="none"
+                           xmlns="http://www.w3.org/2000/svg"
+                        >
+                           <path
+                              d="M0.75 13.6956C0.0325611 14.1098 -0.213252 15.0272 0.200962 15.7446C0.615175 16.4621 1.53256 16.7079 2.25 16.2937L0.75 13.6956ZM20.2694 5.38286C20.4838 4.58266 20.0089 3.76015 19.2087 3.54574L6.16874 0.051683C5.36854 -0.16273 4.54603 0.312144 4.33162 1.11234C4.11721 1.91254 4.59208 2.73505 5.39228 2.94946L16.9834 6.05529L13.8776 17.6464C13.6631 18.4466 14.138 19.2691 14.9382 19.4835C15.7384 19.6979 16.5609 19.2231 16.7753 18.4229L20.2694 5.38286ZM2.25 16.2937L19.5705 6.29367L18.0705 3.69559L0.75 13.6956L2.25 16.2937Z"                          
+                           />
+                        </svg>
+                     </a>
                   </div>
-                  <a href="" className='flex items-center gap-3.75 group'>
-                     <span className='text-[20px] leading-[140%] text-green group-hover:text-[#4f8c06] transition-colors'>Learn more</span>
-                     <svg
-                        className='group-hover:fill-[#4f8c06] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 fill-green'
-                        width="21"
-                        height="20"
-                        viewBox="0 0 21 20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                     >
-                        <path
-                           d="M0.75 13.6956C0.0325611 14.1098 -0.213252 15.0272 0.200962 15.7446C0.615175 16.4621 1.53256 16.7079 2.25 16.2937L0.75 13.6956ZM20.2694 5.38286C20.4838 4.58266 20.0089 3.76015 19.2087 3.54574L6.16874 0.051683C5.36854 -0.16273 4.54603 0.312144 4.33162 1.11234C4.11721 1.91254 4.59208 2.73505 5.39228 2.94946L16.9834 6.05529L13.8776 17.6464C13.6631 18.4466 14.138 19.2691 14.9382 19.4835C15.7384 19.6979 16.5609 19.2231 16.7753 18.4229L20.2694 5.38286ZM2.25 16.2937L19.5705 6.29367L18.0705 3.69559L0.75 13.6956L2.25 16.2937Z"                          
-                        />
-                     </svg>
-                  </a>
                </div>
             </div>
-         </div>
+         </Element>
       </section>
    );
 };

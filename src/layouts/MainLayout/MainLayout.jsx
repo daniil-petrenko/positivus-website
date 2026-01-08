@@ -5,7 +5,7 @@ const MainLayout = ({ children }) => {
   return (
     <div className="wrapper">
       <Header />
-      <main className='main pt-47.25 max-xl:pt-39.25 max-sm:pt-32 max-xs:pt-24'>{children}</main>
+      <main className='main'>{children}</main>
       <Footer />
     </div>
   );

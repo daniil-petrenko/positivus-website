@@ -9,13 +9,53 @@ import 'swiper/css/pagination';
 import Heading from './Heading';
 import { testimonials } from '@/constants';
 
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 const Testimonials = ({ className }) => {
+   useGSAP(() => {
+      const headingTimeline = gsap.timeline({
+         scrollTrigger: {
+            trigger: "#testimonials",
+            start: "top bottom",
+         },
+      });
+
+      headingTimeline
+         .from("#testimonials .heading-title", {
+            yPercent: 100,
+            opacity: 0,
+            duration: 0.5,
+         })
+         .from("#testimonials .heading-text", {
+            yPercent: 100,
+            opacity: 0,
+            duration: 0.5,
+         }, '-=0.3');
+
+      const testimonialsTimeline = gsap.timeline({
+         scrollTrigger: {
+            trigger: '#testimonials',
+            start: "40% bottom",
+         }
+      })
+
+      testimonialsTimeline
+         .from(document.querySelectorAll('.testimonials-slide'), {
+            opacity: 0,
+            yPercent: 50,
+            duration: 1,
+            stagger: 0.07
+         })
+   }, []);
+
    const prevRef = useRef(null);
    const nextRef = useRef(null);
    const paginationRef = useRef(null);
 
    return (
-      <section className={className}>
+      <section id="testimonials" className={className}>
          <div className="cnt">
             <Heading
                title="Testimonials"
@@ -76,7 +116,7 @@ const Testimonials = ({ className }) => {
                   }}
                >
                   {testimonials.map((item) => (
-                     <SwiperSlide className="">
+                     <SwiperSlide className="testimonials-slide">
                         <div className="mb-12 relative z-2 border border-green rounded-[45px]">
                            <div className="bg-dark rounded-[45px] p-13 max-sm2:p-7 max-xs:px-4 relative z-5">
                               <div>

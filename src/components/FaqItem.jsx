@@ -24,7 +24,7 @@ const FaqItem = ({ item, index, activeId, changeActiveId }) => {
 
    return (
       <div
-         className={`relative z-2 mb-7.5 max-sm:mb-5 max-xs:mb-3.5 max-sm:py-7 max-xs:py-3 py-10.25 border border-dark rounded-[45px] transition-colors ${active ? 'bg-green' : 'bg-gray'} shadow-[0_5px_0_0_var(--color-dark)]`}
+         className={`faq-item relative z-2 mb-7.5 max-sm:mb-5 max-xs:mb-3.5 max-sm:py-7 max-xs:py-3 py-10.25 border border-dark rounded-[45px] transition-colors ${active ? 'bg-green' : 'bg-gray'} shadow-[0_5px_0_0_var(--color-dark)]`}
       >
          <div
             className="group relative flex cursor-pointer items-center justify-between gap-10 max-sm2:gap-3 px-14 max-sm:px-10 max-xs:px-6"

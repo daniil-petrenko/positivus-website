@@ -1,7 +1,7 @@
 const ServicesItem = ({ title, imageURL, color, titleColor }) => {
    return (
       <div
-         className={`flex justify-between max-xs:flex-col max-xs:gap-6 max-sm:p-9 max-xs:p-6 xs:items-center min-h-77.5 p-12.5 border rounded-[45px] bg-${color} shadow-[0_5px_0_0_var(--color-dark)]`}
+         className={`services-item flex justify-between max-xs:flex-col max-xs:gap-6 max-sm:p-9 max-xs:p-6 xs:items-center min-h-77.5 p-12.5 border rounded-[45px] bg-${color} shadow-[0_5px_0_0_var(--color-dark)]`}
       >
          <div className="flex flex-col h-full">
             <h3 className="flex flex-col flex-[1_1_auto] font-medium text-[30px] max-xl:mb-5">

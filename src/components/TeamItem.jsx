@@ -2,7 +2,7 @@ import React from 'react';
 
 const TeamItem = ({ item }) => {
    return (
-      <div className="border border-black bg-white shadow-[0_5px_0_0_var(--color-dark)] rounded-[45px] py-11.25 px-8.5 max-sm:py-8 max-sm:px-6 flex flex-col h-full">
+      <div className="team-item border border-black bg-white shadow-[0_5px_0_0_var(--color-dark)] rounded-[45px] py-11.25 px-8.5 max-sm:py-8 max-sm:px-6 flex flex-col h-full">
          <div className="grid grid-rows-[150px_1fr] max-sm2:grid-rows-[auto_1fr] h-full">
             <div className="flex max-sm2:flex-col gap-5 border-b border-black">
                <div className="self-center">
